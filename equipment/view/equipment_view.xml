@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_equipment_tree" model="ir.ui.view">
+            <field name="name">equipment.tree</field>
+            <field name="model">equipment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Equipment">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="name"/>
+                    <field name="origin_of_production"/>
+                    <field name="production_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_equipment_form" model="ir.ui.view">
+            <field name="name">equipment.form</field>
+            <field name="model">equipment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Equipment">
+                    <sheet>
+                        <group col="4" name="main">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="origin_of_production"/>
+                            <field name="production_date"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_equipment_search" model="ir.ui.view">
+            <field name="name">equipment.search</field>
+            <field name="model">equipment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Equipment">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="origin_of_production"/>
+                    <field name="production_date"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_equipment_view">
+            <field name="name">Equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">equipment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_equipment_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_equipment_form_view">
+            <field name="act_window_id" ref="act_open_equipment_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_equipment_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_equipment_tree_view">
+            <field name="act_window_id" ref="act_open_equipment_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_equipment_tree"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_imports_main" name="Import" sequence="20"
+                  action="act_open_imports_view" />
+    </data>
+</odoo>

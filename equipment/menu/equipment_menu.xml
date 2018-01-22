@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_configure_root" name="Configures" sequence="10"
+			web_icon="static/description/icon.png"/>
+        <menuitem id="menu_equipments_sub" name="Equipments" sequence="60"
+                  action="act_open_equipment_view" parent="menu_configure_root"/>
+    </data>
+</odoo>

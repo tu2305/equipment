@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_lots_sub" name="Lots" sequence="70"
+                  action="act_open_lots_view" parent="equipment.menu_configure_root"/>
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_lots_tree" model="ir.ui.view">
+            <field name="name">lots.tree</field>
+            <field name="model">lots</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Lots">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="equipment_id"/>
+                    <field name="quantity"/>
+                    <field name="cost"/>
+                    <field name="date_added"/>
+                    <field name="total_cost"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_lots_form" model="ir.ui.view">
+            <field name="name">lots.form</field>
+            <field name="model">lots</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Lots">
+                    <sheet>
+                        <group col="4" name="main">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="equipment_id"/>
+                            <field name="quantity"/>
+                            <field name="cost"/>
+                            <field name="date_added"/>
+                            <field name="total_cost"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_lots_search" model="ir.ui.view">
+            <field name="name">lots.search</field>
+            <field name="model">lots</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Lots">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="equipment_id"/>
+                    <field name="date_added"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_lots_view">
+            <field name="name">Lots</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lots</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_lots_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_lots_form_view">
+            <field name="act_window_id" ref="act_open_lots_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_lots_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_lots_tree_view">
+            <field name="act_window_id" ref="act_open_lots_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_lots_tree"/>
+        </record>
+    </data>
+</odoo>
